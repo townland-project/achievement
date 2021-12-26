@@ -1,0 +1,62 @@
+tl-achievement {
+    --townland-achievement-width: 80px;
+    --townland-achievement-height: 74px;
+    --townland-achievement-border: 14px;
+
+    width: var(--townland-achievement-width);
+    height: var(--townland-achievement-height);
+
+    position: relative;
+
+    display: inline-block;
+
+    div.shadow,
+    div.border,
+    div.image {
+        display: inline-block;
+
+        position: absolute;
+
+        inset: 0 0 0 0;
+
+        filter: url("#tl-achievement-star");
+
+        width: var(--townland-achievement-width);
+        height: var(--townland-achievement-height);
+
+        div.after {
+            clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+        }
+    }
+
+    div.shadow {
+        div.after {
+            background-color: rgba($color: #000000, $alpha: 0.5);
+
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    div.border div.after {
+        background-color: var(--border);
+
+        width: 100%;
+        height: 100%;
+
+        position: relative;
+    }
+
+    div.image div.after {
+        width: calc(var(--townland-achievement-width) - var(--townland-achievement-border));
+        height: calc(var(--townland-achievement-height) - var(--townland-achievement-border));
+
+        margin: calc(var(--townland-achievement-border) / 2);
+
+        background-color: var(--background);
+        background-image: var(--image);
+        background-size: calc(var(--townland-achievement-width) - var(--townland-achievement-border) - 15px);
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+}
